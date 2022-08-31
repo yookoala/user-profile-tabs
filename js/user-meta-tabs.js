@@ -55,6 +55,19 @@
         return wrapper;
     }
 
+    /**
+     * Measure the height of an element.
+     *
+     * @param {HTMLElement} el
+     * @returns
+     */
+    function getElementHeight(el) {
+        var styles = window.getComputedStyle(el);
+        var margin = parseFloat(styles['marginTop']) +
+               parseFloat(styles['marginBottom']);
+        return Math.ceil(el.offsetHeight + margin);
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         const profileForm = document.querySelector('form#your-profile');
         if (typeof profileForm === 'undefined') {
@@ -116,5 +129,16 @@
             // Move element inside container.
             tab.appendChild(n);
         }
+
+        // Force the container to be at least the
+        // height of the smallest tab.
+        let maxTabHeight = 0;
+        for (let tab of tabs.childNodes) {
+            let tabHeight = getElementHeight(tab);
+            console.log(tab, tabHeight);
+            maxTabHeight = (tabHeight > maxTabHeight)
+                ? tabHeight : maxTabHeight;
+        }
+        tabs.style.minHeight = `${maxTabHeight}px`;
     });
 })();

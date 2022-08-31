@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 .user-meta-tabs {
+    margin: 1.5em 0 1em;
     display: flex;
     border: solid 1px #dcdcde;
     background-color: rgba(255, 255, 255, 0.8);
@@ -46,7 +47,8 @@
     pointer-events: none;
 }
 .user-meta-tabs .tabs .tab.active {
-    position: relative;
     opacity: 1;
     pointer-events: all;
+    height: auto;
+    width: auto;
 }
