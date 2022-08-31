@@ -62,61 +62,61 @@
             return;
         }
 
-        const accountManagementTitle = document.evaluate(
-            '//h2[text()="Account Management"]',
-            profileForm,
-            null,
-            XPathResult.FIRST_ORDERED_NODE_TYPE
-        ).singleNodeValue;
-        if (accountManagementTitle === null) {
-            // do nothing if the "<h2>Account Management</h2>" element is not here
+        const title = document.querySelector('h1.wp-heading-inline');
+        if (title === null) {
+            // do nothing if there is no title.
             return;
         }
 
+        const submit = profileForm.querySelector('p.submit')
+
         // The container to put tabs in
-        const theContainer = accountManagementTitle.parentElement;
+        const theContainer = profileForm;
 
         let container = createContainer();
         container.classList.add('user-meta-tabs');
-        accountManagementTitle.after(container);
+        title.after(container);
         let tabLinks = createContainer('ul', 'tab-links');
         container.appendChild(tabLinks);
         let tabs = createContainer('div', 'tabs');
         container.appendChild(tabs);
 
-        let tab = createContainer('div', 'tab');
-        tab.classList.add('active');
-        tabs.appendChild(tab);
-
-        let firstTab = createTabLink('Basics', tabs, tab);
-        tabLinks.appendChild(firstTab);
-        firstTab.querySelector('a').classList.add('active');
-
-        let collect = false;
+        let tab = null;
+        let firstTab = true;
         for (let n of theContainer.childNodes) {
             if (n.nodeType !== Node.ELEMENT_NODE) {
                 continue;
             }
-            if (n.isEqualNode(accountManagementTitle)) {
-                collect = true;
-                continue;
-            } else if (n.isEqualNode(container)) {
-                continue;
-            } else if (!collect) {
+            if (n.isEqualNode(container)) {
                 continue;
             }
-
-            if (n.tagName.toUpperCase() === 'H2') {
-                collect = false;
+            if (n.isEqualNode(submit)) {
                 continue;
             }
 
             // Create tab for each h3
-            if (n.tagName.toUpperCase() === 'H3') {
-                console.log('h3');
+            if (n.tagName.toUpperCase() === 'H2' || n.tagName.toUpperCase() === 'H3') {
                 tab = createContainer('div', 'tab');
                 tabs.appendChild(tab);
                 tabLinks.appendChild(createTabLink(n.innerText, tabs, tab));
+            } else if (n.querySelector('h2, h3') !== null) {
+                tab = createContainer('div', 'tab');
+                tabs.appendChild(tab);
+                tabLinks.appendChild(createTabLink(
+                    n.querySelector('h2').innerText, tabs, tab
+                ));
+            }
+
+            // If there is no tab, wait.
+            if (tab === null) {
+                continue;
+            }
+
+            // If the tab is the first tab, set it to active.
+            if (firstTab) {
+                tab.classList.add('active');
+                tabLinks.querySelector('a').classList.add('active');
+                firstTab = false;
             }
 
             // Move element inside container.
