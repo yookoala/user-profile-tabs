@@ -3,7 +3,7 @@
 /**
  * Plugin Name: User Meta Tabs
  * Description: Group user meta fields under tabs
- * Version: 0.1
+ * Version: 1.0
  * Author: Koala Yeung
  * Author URI: https://github.com/yookoala
  */
