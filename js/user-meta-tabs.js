@@ -62,12 +62,6 @@
             return;
         }
 
-        const title = document.querySelector('h1.wp-heading-inline');
-        if (title === null) {
-            // do nothing if there is no title.
-            return;
-        }
-
         const submit = profileForm.querySelector('p.submit')
 
         // The container to put tabs in
@@ -75,7 +69,7 @@
 
         let container = createContainer();
         container.classList.add('user-meta-tabs');
-        title.after(container);
+        submit.before(container);
         let tabLinks = createContainer('ul', 'tab-links');
         container.appendChild(tabLinks);
         let tabs = createContainer('div', 'tabs');
