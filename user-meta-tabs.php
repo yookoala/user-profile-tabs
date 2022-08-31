@@ -10,7 +10,7 @@
 
 function user_meta_tabs_enqueue_script(string $hook)
 {
-    if ($hook !== 'profile.php') {
+    if (!in_array($hook, ['profile.php', 'user-edit.php'])) {
         return;
     }
     wp_enqueue_script('user_meta_tabs/profile', plugin_dir_url( __FILE__ ) . '/js/user-meta-tabs.js');
