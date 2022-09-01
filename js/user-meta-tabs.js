@@ -109,24 +109,31 @@
 
         let tab = null;
         let firstTab = true;
-        for (let n of Array.from(theContainer.children)) {
-
+        for (let n of Array.from(theContainer.childNodes)) {
             // Prevent handling tabs or the submit button wrapper.
             if (n.isSameNode(container) || n.isSameNode(submit)) {
                 continue;
             }
 
-            // Create tab for each h3
-            if (n.tagName.toUpperCase() === 'H2' || n.tagName.toUpperCase() === 'H3') {
-                tab = createContainer('div', 'tab');
-                tabs.appendChild(tab);
-                tabLinks.appendChild(createTabLink(n.innerText, tabs, tab));
-            } else if (n.querySelector('h2, h3') !== null) {
-                tab = createContainer('div', 'tab');
-                tabs.appendChild(tab);
-                tabLinks.appendChild(createTabLink(
-                    n.querySelector('h2').innerText, tabs, tab
-                ));
+            // Skip handling empty text node.
+            if (n.nodeType === Node.TEXT_NODE && n.textContent.trim() === '') {
+                continue;
+            }
+
+            // Find headings in node elements to create tab with.
+            if (n.nodeType === Node.ELEMENT_NODE) {
+                // Create tab for each h3
+                if (n.tagName.toUpperCase() === 'H2' || n.tagName.toUpperCase() === 'H3') {
+                    tab = createContainer('div', 'tab');
+                    tabs.appendChild(tab);
+                    tabLinks.appendChild(createTabLink(n.innerText, tabs, tab));
+                } else if (n.querySelector('h2, h3') !== null) {
+                    tab = createContainer('div', 'tab');
+                    tabs.appendChild(tab);
+                    tabLinks.appendChild(createTabLink(
+                        n.querySelector('h2').innerText, tabs, tab
+                    ));
+                }
             }
 
             // If there is no tab, wait.
