@@ -47,7 +47,7 @@
     display: block;
     position: absolute;
     width: 100%;
-    padding: 1em 1em 1em 1.5em;
+    padding: 1em 1em 2em 1.5em;
     transition: all 0.3s;
     opacity: 0;
     pointer-events: none;
