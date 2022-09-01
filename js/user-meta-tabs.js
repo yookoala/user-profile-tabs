@@ -131,7 +131,6 @@
         let maxTabHeight = 0;
         for (let tab of tabs.childNodes) {
             let tabHeight = getElementHeight(tab);
-            console.log(tab, tabHeight);
             maxTabHeight = (tabHeight > maxTabHeight)
                 ? tabHeight : maxTabHeight;
         }
