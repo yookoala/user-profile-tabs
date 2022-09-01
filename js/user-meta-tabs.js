@@ -68,7 +68,7 @@
         return Math.ceil(el.offsetHeight + margin);
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('load', function () {
         const profileForm = document.querySelector('form#your-profile');
         if (typeof profileForm === 'undefined') {
             // do nothing if profile form is not here.
