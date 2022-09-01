@@ -68,6 +68,25 @@
         return Math.ceil(el.offsetHeight + margin);
     }
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const profileForm = document.querySelector('form#your-profile');
+        if (typeof profileForm === 'undefined') {
+            // do nothing if profile form is not here.
+            return;
+        }
+
+        // Move all hidden input field to into form element (top level).
+        // Then remove all paragraphs that has nothing after the migration.
+        document.querySelectorAll('form#your-profile > p').forEach((el) => {
+            el.querySelectorAll('input[type=hidden]').forEach((input) => {
+                profileForm.prepend(input);
+            });
+            if (el.innerHTML.trim().length === 0) {
+                el.remove();
+            }
+        });
+    });
+
     window.addEventListener('load', function () {
         const profileForm = document.querySelector('form#your-profile');
         if (typeof profileForm === 'undefined') {
