@@ -90,14 +90,10 @@
 
         let tab = null;
         let firstTab = true;
-        for (let n of theContainer.childNodes) {
-            if (n.nodeType !== Node.ELEMENT_NODE) {
-                continue;
-            }
-            if (n.isEqualNode(container)) {
-                continue;
-            }
-            if (n.isEqualNode(submit)) {
+        for (let n of Array.from(theContainer.children)) {
+
+            // Prevent handling tabs or the submit button wrapper.
+            if (n.isSameNode(container) || n.isSameNode(submit)) {
                 continue;
             }
 
