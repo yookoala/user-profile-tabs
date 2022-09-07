@@ -100,7 +100,7 @@
         const theContainer = profileForm;
 
         let container = createContainer();
-        container.classList.add('user-meta-tabs');
+        container.classList.add('user-profile-tabs');
         submit.before(container);
         let tabLinks = createContainer('ul', 'tab-links');
         container.appendChild(tabLinks);

@@ -1,12 +1,13 @@
 SHELL:=/bin/bash
+PLUGIN_NAME:=$(shell basename ${PWD})
 
-all: user-meta-tabs.zip
+all: ${PLUGIN_NAME}.zip
 
-user-meta-tabs.zip:
-	cd ..; zip -9 -r user-meta-tabs/user-meta-tabs.zip ./user-meta-tabs -x '*/.git/*' -x '*/makefile'
+%.zip:
+	cd ..; zip -9 -r ${*}/${*}.zip ./${*} -x '*/.git/*' -x '*/makefile'
 
 # Remove all generated files.
 clean:
-	rm -f user-meta-tabs.zip
+	rm -f ${PLUGIN_NAME}.zip
 
-.PHONY: all clean all-mo clean-mo merge install-mo
+.PHONY: all clean
