@@ -20,6 +20,18 @@ this plugin will inject CSS and Javascripts to them into sensible tabs.
 * [Plugin Page][plugin-page]
 * [GitHub Repository][github-repo]
 
+
+## Support
+
+If you find this useful, please show some support:
+
+[![Buy me a pizza][button-buymeacoffie]][url-buymeacoffie]
+
+[url-buymeacoffie]: https://buymeacoffee.com/yookoala
+[button-buymeacoffie]: https://cdn.buymeacoffee.com/buttons/v2/default-blue.png
+
+
+
 [plugin-page]: https://wordpress.org/plugins/user-profile-tabs/
 [github-repo]: https://github.com/yookoala/user-profile-tabs
 [shield-stars]: https://img.shields.io/wordpress/plugin/stars/user-profile-tabs

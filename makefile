@@ -4,7 +4,7 @@ PLUGIN_NAME:=$(shell basename ${PWD})
 all: ${PLUGIN_NAME}.zip
 
 %.zip:
-	cd ..; zip -9 -r ${*}/${*}.zip ./${*} -x '*/.git/*' -x '*/makefile'
+	cd ..; zip -9 -r ${*}/${*}.zip ./${*} -x '*/.git/*' -x '*/makefile' -x '*/codeception.*' -x '*/tests'
 
 # Remove all generated files.
 clean:
