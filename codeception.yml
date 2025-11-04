@@ -1,0 +1,28 @@
+namespace: Yookoala\UserProfileTabs\Tests
+support_namespace: Support
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/Support/Data
+    support: tests/Support
+    envs: tests/_envs
+actor_suffix: Tester
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+params:
+  # Use custom script to have proper environement setup
+  - codeception.env.php
+modules:
+  config:
+    # "url" can differ between test suites and test environment.
+    # This default value is only to keep the config valid.
+    # Please override it in the suite configs or environment configs.
+    WebDriver:
+      url: '%WORDPRESS_CI_URL%'
+      browser: chrome
+      window_size: '%BROWSER_WINDOW_SIZE%'
+      path: /
+      capabilities:
+        goog:chromeOptions:
+          args: ['--headless', '--disable-gpu']

@@ -9,6 +9,10 @@
             "email": "koalay@gmail.com"
         }
     ],
+    "scripts": {
+        "test": "codecept run",
+        "test:acceptance": "codecept run acceptance"
+    },
     "require-dev": {
         "codeception/codeception": "^5.3",
         "codeception/module-webdriver": "^4.0",
