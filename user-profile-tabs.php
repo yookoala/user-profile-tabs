@@ -6,6 +6,8 @@
  * Version: 1.0
  * Author: Koala Yeung
  * Author URI: https://github.com/yookoala
+ * Requires at least: 5.8
+ * Requires PHP: 5.4
  */
 
 function user_profile_tabs_enqueue_script(string $hook)

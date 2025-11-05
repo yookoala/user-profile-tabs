@@ -2,10 +2,8 @@
 Contributors: (this should be a list of wordpress.org userid's)
 Donate link: https://www.buymeacoffee.com/yookoala
 Tags: user profile, user fields, memberships, user meta, user profile, users
-Requires at least: 4.7
 Tested up to: 6.0
 Stable tag: 1.0
-Requires PHP: 5.4
 License: MIT
 License URI: https://mit-license.org/
 
