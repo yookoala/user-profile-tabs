@@ -4,9 +4,10 @@ PLUGIN_VERSION?=1.0.0
 WP_TESTED_UP_TO?=6.0
 WP_STABLE_TAG?=${PLUGIN_VERSION}
 
-all: dist/${PLUGIN_NAME}.zip
+all: dist/${PLUGIN_NAME}.zip prepare
 
 dist/${PLUGIN_NAME}:
+	@echo
 	mkdir -p dist/${PLUGIN_NAME}
 	rsync -av \
 		--exclude='.*' \
@@ -30,19 +31,28 @@ dist/${PLUGIN_NAME}:
 	sed -i "s/^\(Tested up to: \).*/\1${WP_TESTED_UP_TO}/" dist/${PLUGIN_NAME}/README.txt
 
 dist/${PLUGIN_NAME}.zip: dist/${PLUGIN_NAME}
+	@echo
+	@echo "Creating ${PLUGIN_NAME}.zip"
 	cd dist && zip -r ${PLUGIN_NAME}.zip ${PLUGIN_NAME}
 
 dist/svn:
+	@echo
+	@echo "Checking out SVN repo into dist/svn"
 	svn checkout https://plugins.svn.wordpress.org/${PLUGIN_NAME}/ dist/svn
 
 prepare: dist/svn dist/${PLUGIN_NAME}
+	@echo
 	@echo "Inspect the SVN directory"
 	ls -la dist/svn
 
-	@echo "Copy the latest dist files to trunk"
+	@echo
+	@echo "Copy the latest dist files to the svn local copy"
 	rsync -av --delete dist/${PLUGIN_NAME}/ dist/svn/trunk/
 	rsync -av --delete .wordpress-org/ dist/svn/assets/
 
+	@echo
+	@echo "Inspect the repository status"
+	cd dist/svn && svn status && cd ../..
 
 publish:
 	# Require manual username / password and a commit message
