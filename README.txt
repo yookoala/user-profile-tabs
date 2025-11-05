@@ -1,7 +1,7 @@
 === User Profile Tabs ===
-Contributors: (this should be a list of wordpress.org userid's)
+Contributors: yookoala
 Donate link: https://www.buymeacoffee.com/yookoala
-Tags: user profile, user fields, memberships, user meta, user profile, users
+Tags: user profile, user fields, memberships, user meta, user profile
 Tested up to: [WP_TESTED_UP_TO]
 Stable tag: [WP_STABLE_TAG]
 License: MIT
