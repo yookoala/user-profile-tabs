@@ -15,6 +15,13 @@ Regroup DOM element in profile form into tabs for better UX.
 If your User Profile page is way too stuffed with fields (e.g. from Paid Membership Pro), this plugin will inject CSS and Javascripts to re-organize sections in "Account Management" sections into tabs. All fields under H3 will be re-organized in tabs.
 
 
+== Screenshots ==
+
+1. Install, activate, and then the User Profile page is no longer messy.
+2. The "Name" section of default WordPress user profile page becomes a tab.
+3. The "Contact Info" section of default WordPress user profile page becomes a tab.
+
+
 == Frequently Asked Questions ==
 
 = How do I use this plugin? =
