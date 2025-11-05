@@ -18,6 +18,8 @@ jobs:
           MARIADB_PASSWORD: password
         ports:
           - 3306:3306
+    outputs:
+      WORDPRESS_VERSION: ${{ steps.test.outputs.WORDPRESS_VERSION }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v5
@@ -34,6 +36,7 @@ jobs:
           chromedriver --port=4444 > tests/_output/chromedriver.log 2>&1 &
 
       - name: Test
+        id: test
         uses: impressible-wp/wordpress-ci@v2
         with:
           plugins: .
@@ -50,6 +53,11 @@ jobs:
             # Running "client-side" commands in GitHub Actions runner
             composer install
             composer run test
+
+            # Get versions from the environment for build step
+            WORDPRESS_VERSION=$(wpci-cmd wp core version)
+            echo "Detected WordPress version: $WORDPRESS_VERSION"
+            echo "WORDPRESS_VERSION=$WORDPRESS_VERSION" >> "$GITHUB_OUTPUT"
     
       - name: Save Artifacts
         if: failure()
@@ -57,3 +65,39 @@ jobs:
         with:
           name: test-artifacts
           path: tests/_output
+
+  build:
+    name: Build Plugin
+    runs-on: ubuntu-latest
+    needs: test-action
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Build Plugin
+        run: |
+          # Get the latest tag reachable from this commit
+          PLUGIN_VERSION_V=$(git describe --tags --abbrev=0 --match "v[0-9]*.*" 2>/dev/null || echo "v1.0.0")
+          WORDPRESS_VERSION_V=${{ needs.test-action.outputs.WORDPRESS_VERSION }}
+          echo "PLUGIN_VERSION_V=${PLUGIN_VERSION_V}"
+          echo "WORDPRESS_VERSION_V=${WORDPRESS_VERSION_V}"
+
+          # Strip the leading 'v' from the version tag
+          export PLUGIN_VERSION=${PLUGIN_VERSION_V#v}
+          echo "PLUGIN_VERSION=${PLUGIN_VERSION}"
+          export WP_TESTED_UP_TO=${WORDPRESS_VERSION_V#v}
+          echo "WP_TESTED_UP_TO=${WP_TESTED_UP_TO}"
+
+          echo "Building plugin version ${PLUGIN_VERSION} (mark tested up to WordPress ${WP_TESTED_UP_TO})"
+          make all
+
+          # Show the build results
+          ls -lh dist/
+
+      - name: Save Built Plugin
+        uses: actions/upload-artifact@v5
+        with:
+          name: user-profile-tabs
+          path: dist/*
