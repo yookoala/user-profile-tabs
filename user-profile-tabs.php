@@ -3,9 +3,9 @@
 /**
  * Plugin Name: User Profile Tabs
  * Description: Group user profile page fields under tabs.
- * Version: 1.0
  * Author: Koala Yeung
  * Author URI: https://github.com/yookoala
+ * Version: [PLUGIN_VERSION]
  * Requires at least: 5.8
  * Requires PHP: 5.4
  */

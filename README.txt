@@ -2,8 +2,8 @@
 Contributors: (this should be a list of wordpress.org userid's)
 Donate link: https://www.buymeacoffee.com/yookoala
 Tags: user profile, user fields, memberships, user meta, user profile, users
-Tested up to: 6.0
-Stable tag: 1.0
+Tested up to: [WP_TESTED_UP_TO]
+Stable tag: [WP_STABLE_TAG]
 License: MIT
 License URI: https://mit-license.org/
 
