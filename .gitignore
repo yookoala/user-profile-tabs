@@ -3,3 +3,6 @@
 
 # composer libraries used for testing
 /vendor/
+
+# temporary folder
+/temp/
