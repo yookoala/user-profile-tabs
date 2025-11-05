@@ -1,3 +1,8 @@
-/*.zip
+# distribution / build target
+/dist/
 
+# composer libraries used for testing
 /vendor/
+
+# temporary folder
+/temp/
