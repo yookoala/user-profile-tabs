@@ -1,6 +1,6 @@
 # User Profile Tabs
 
-[![WordPress Plugin Version][shield-version]][plugin-page] [![WordPress Plugin Stars][shield-stars]][plugin-page]
+[![WordPress Plugin Version][shield-version]][plugin-page] [![WordPress Plugin Stars][shield-stars]][plugin-page] [![GitHub CI Test Result][shield-ci]][github-ci-url]
 
 ![banner][plugin-banner]
 
@@ -27,9 +27,11 @@ this plugin will inject CSS and Javascripts to them into sensible tabs.
 
 How the User Profile page would look with this plugin activated:
 
-![Screenshot 1][.wordpress-org/screenshot-1.png]
-![Screenshot 2][.wordpress-org/screenshot-2.png]
-![Screenshot 3][.wordpress-org/screenshot-3.png]
+[<img src=".wordpress-org/screenshot-1.png" width=400 />](.wordpress-org/screenshot-1.png)
+
+[<img src=".wordpress-org/screenshot-2.png" width=400 />](.wordpress-org/screenshot-2.png)
+[<img src=".wordpress-org/screenshot-3.png" width=400 />](.wordpress-org/screenshot-3.png)
+
 
 
 ## Support
@@ -46,8 +48,10 @@ If you find this useful, please show some support:
 [plugin-banner]: .wordpress-org/banner-1544x500.png
 [plugin-page]: https://wordpress.org/plugins/user-profile-tabs/
 [github-repo]: https://github.com/yookoala/user-profile-tabs
+[github-ci-url]: https://github.com/yookoala/user-profile-tabs/actions/workflows/ci.yml
 [shield-stars]: https://img.shields.io/wordpress/plugin/stars/user-profile-tabs
 [shield-version]: https://img.shields.io/wordpress/plugin/v/user-profile-tabs?label=WordPress%20Plugin
+[shield-ci]: https://github.com/yookoala/user-profile-tabs/actions/workflows/ci.yml/badge.svg
 
 
 ## License
