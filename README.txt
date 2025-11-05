@@ -30,6 +30,20 @@ Just install and activate. No other setup is needed.
 
 Go to "Users > Profile" (`/wp-admin/profile.php` of your WordPress) and you will see the result.
 
+= I have many other plugin that add things to the user profile page. Does this still work for me? =
+
+Most probably, yes.
+
+This plugin uses Javascript to parse and manipulate the page's DOM. From my observation, all contents from plugin are simply putting new `<h2>` or `<h3>` heading and then added their own content. This plugin plays nice with that convention in mind.
+
+There are always exception. In that case, deactivating is very simple. This plugin leaves absolutely no footprint behind.
+
+= Does this modify the profile page template or rendering process? =
+
+No. All changes are on the browser only. And the changes are just moving things around into the tabs.
+
+The underlying HTML of the page is never touched.
+
 = How do I contribute? =
 
 The development is happening on GitHub.
