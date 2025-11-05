@@ -78,6 +78,10 @@ jobs:
 
       - name: Build Plugin
         run: |
+          # Install dependencies
+          sudo apt-get update
+          sudo apt-get install -y subversion
+
           # Get the latest tag reachable from this commit
           PLUGIN_VERSION_V=$(git describe --tags --abbrev=0 --match "v[0-9]*.*" 2>/dev/null || echo "v1.0.0")
           WORDPRESS_VERSION_V=${{ needs.test-action.outputs.WORDPRESS_VERSION }}
