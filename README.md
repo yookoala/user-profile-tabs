@@ -2,6 +2,8 @@
 
 [![WordPress Plugin Version][shield-version]][plugin-page] [![WordPress Plugin Stars][shield-stars]][plugin-page]
 
+![banner][plugin-banner]
+
 Organize the user profile form with tabs.
 
 If your User Profile page is way too stuffed with fields (e.g. from Paid Membership Pro),
@@ -21,6 +23,15 @@ this plugin will inject CSS and Javascripts to them into sensible tabs.
 * [GitHub Repository][github-repo]
 
 
+## Screenshots
+
+How the User Profile page would look with this plugin activated:
+
+![Screenshot 1][.wordpress-org/screenshot-1.png]
+![Screenshot 2][.wordpress-org/screenshot-2.png]
+![Screenshot 3][.wordpress-org/screenshot-3.png]
+
+
 ## Support
 
 If you find this useful, please show some support:
@@ -31,7 +42,8 @@ If you find this useful, please show some support:
 [button-buymeacoffie]: https://cdn.buymeacoffee.com/buttons/v2/default-blue.png
 
 
-
+[plugin-icon]: .wordpress-org/icon-128x128.png
+[plugin-banner]: .wordpress-org/banner-1544x500.png
 [plugin-page]: https://wordpress.org/plugins/user-profile-tabs/
 [github-repo]: https://github.com/yookoala/user-profile-tabs
 [shield-stars]: https://img.shields.io/wordpress/plugin/stars/user-profile-tabs
