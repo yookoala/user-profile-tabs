@@ -1,6 +1,6 @@
 # User Profile Tabs
 
-[![WordPress Plugin Version][shield-version]][plugin-page] [![WordPress Plugin Stars][shield-stars]][plugin-page] [![GitHub CI Test Result][shield-ci]][github-ci-url]
+[![WordPress Plugin Version][shield-version]][plugin-page] [![WordPress Plugin Stars][shield-stars]][plugin-page] [![Live Preview][shield-wordpress-playground]][wordpress-playground-url] [![GitHub CI Test Result][shield-ci]][github-ci-url]
 
 ![banner][plugin-banner]
 
@@ -21,6 +21,7 @@ this plugin will inject CSS and Javascripts to them into sensible tabs.
 
 * [Plugin Page][plugin-page]
 * [GitHub Repository][github-repo]
+* [Live Preview][wordpress-playground-url]
 
 
 ## Screenshots
@@ -49,9 +50,11 @@ If you find this useful, please show some support:
 [plugin-page]: https://wordpress.org/plugins/user-profile-tabs/
 [github-repo]: https://github.com/yookoala/user-profile-tabs
 [github-ci-url]: https://github.com/yookoala/user-profile-tabs/actions/workflows/ci.yml
-[shield-stars]: https://img.shields.io/wordpress/plugin/stars/user-profile-tabs
+[wordpress-playground-url]: https://playground.wordpress.net/?blueprint-url=https%3A%2F%2Fraw.githubusercontent.com%2Fyookoala%2Fuser-profile-tabs%2Frefs%2Fheads%2Fmain%2F.wordpress-org%2Fblueprints%2Fblueprint.json
+[shield-stars]: https://img.shields.io/wordpress/plugin/stars/user-profile-tabs?label=User%20Rating&color=blue
 [shield-version]: https://img.shields.io/wordpress/plugin/v/user-profile-tabs?label=WordPress%20Plugin
 [shield-ci]: https://github.com/yookoala/user-profile-tabs/actions/workflows/ci.yml/badge.svg
+[shield-wordpress-playground]: https://img.shields.io/badge/Playground-Live_Preview-blue
 
 
 ## License
